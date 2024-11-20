@@ -3,6 +3,17 @@
 Este repositorio proporciona una guía para instalar todo lo necesario para trabajar con proyectos de Spring Boot en **Windows** y **Linux**, junto con herramientas clave como PGAdmin y otros recursos útiles.
 
 ---
+## Índice
+
+1. [Requisitos previos](#requisitos-previos)
+2. [Instalación](#instalación)
+   - [Instalación en Windows](#1-instalación-en-windows)
+   - [Instalación en Linux](#2-instalación-en-linux-debianubuntu)
+3. [Probar el entorno](#probar-el-entorno)
+4. [Recursos adicionales](#recursos-adicionales)
+5. [Autor](#autor)
+
+---
 
 ## Requisitos previos
 
