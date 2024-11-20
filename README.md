@@ -1,6 +1,6 @@
 # Spring Boot Project Setup
 
-Este repositorio proporciona una guía para instalar todo lo necesario para trabajar con proyectos de Spring Boot en **Windows** y **Linux**, junto con herramientas clave como IntelliJ IDEA y PGAdmin.
+Este repositorio proporciona una guía para instalar todo lo necesario para trabajar con proyectos de Spring Boot en **Windows** y **Linux**, junto con herramientas clave como PGAdmin y otros recursos útiles.
 
 ---
 
@@ -8,21 +8,22 @@ Este repositorio proporciona una guía para instalar todo lo necesario para trab
 
 ### General
 - JDK 17 o superior.
-- Maven (opcional si IntelliJ lo gestiona automáticamente).
-- Docker (para facilitar la instalación de PostgreSQL, si prefieres no instalarlo manualmente).
+- Maven (opcional si tu editor de código lo gestiona automáticamente).
+- Editor de código (opcional):
+  - [Visual Studio Code](https://code.visualstudio.com/)
+  - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+  - [NetBeans](https://netbeans.apache.org/)
+  - [Eclipse](https://www.eclipse.org/)
 
 ---
+
 ## Instalación
 
 ### 1. Instalación en Windows
 
 #### JDK (Java Development Kit)
-1. Descarga el instalador de la página oficial de [Oracle](https://www.oracle.com/java/technologies/javase-downloads.html)
-2. Sigue las instrucciones del instalador para configurar el **JAVA**.
-
-#### IntelliJ IDEA
-1. Descarga IntelliJ IDEA Community desde [JetBrains](https://www.jetbrains.com/idea/download/).
-2. Instálalo y selecciona el JDK durante la configuración inicial.
+1. Descarga el instalador de la página oficial de [Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) o [Adoptium](https://adoptium.net/).
+2. Sigue las instrucciones del instalador para configurar el **JAVA_HOME**.
 
 #### PostgreSQL y PGAdmin
 1. Descarga PostgreSQL desde [aquí](https://www.postgresql.org/download/windows/).
