@@ -88,7 +88,7 @@ Se eligió Spring Boot frente a otros frameworks populares para Java debido a su
 1. Descarga PostgreSQL desde [aquí](https://www.postgresql.org/download/windows/).
 2. Durante la instalación, asegúrate de seleccionar **PGAdmin**.
 3. Configura un usuario y contraseña para la base de datos.
-4. Para [más detalles aquí](WINDOWS-64BITS.md)
+4. Para más detalles [aquí](WINDOWS-64BITS.md)
 
 
 ---
