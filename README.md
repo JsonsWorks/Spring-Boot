@@ -227,37 +227,37 @@ Spring Data JPA proporciona una interfaz rica con métodos predefinidos que simp
 ### Operaciones CRUD
 
 1. **Guardar o actualizar una entidad:**
-   ```java
-   T save(S entity);
-   ```
+```java
+T save(S entity);
+```
 Ejemplo:
 ```java
-   Jugador jugador = new Jugador("Luis", "Equipo A");
+Jugador jugador = new Jugador("Luis", "Equipo A");
 jugadorRepository.save(jugador);
 ```
 2. **Encontrar una entidad por su ID:**
 ```java
-   Optional<T> findById(ID id);
+Optional<T> findById(ID id);
 ```
 Ejemplo:
 ```java
-   Optional<Jugador> jugador = jugadorRepository.findById(1L);
+Optional<Jugador> jugador = jugadorRepository.findById(1L);
 jugador.ifPresent(System.out::println);
 ```
 3. **Eliminar una entidad específica:**
 ```java
-   void delete(T entity);
+void delete(T entity);
 ```
 4. **Eliminar por ID:**
 ```java
-   void deleteById(ID id);
+void deleteById(ID id);
 ```
 5. **Obtener todas las entidades:**
 ```java
-   List<T> findAll();
+List<T> findAll();
 ```
 Ejemplo:
 ```java
-   List<Jugador> jugadores = jugadorRepository.findAll();
+List<Jugador> jugadores = jugadorRepository.findAll();
 jugadores.forEach(System.out::println);
 ```
