@@ -17,8 +17,7 @@ Este repositorio proporciona una guía para instalar todo lo necesario para trab
 7. [Probar el entorno](#probar-el-entorno)
 8. [API REST y peticiones](#api-rest-y-peticiones)
 9. [Servicios y repositorios](#servicios-y-repositorios)
-10. [Configuración y dependencias](#configuración-y-dependencias)
-11. [Recursos adicionales](#recursos-adicionales)
+
 ---
 ## ¿Qué es Spring Boot?
 
