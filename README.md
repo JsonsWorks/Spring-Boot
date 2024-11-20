@@ -4,19 +4,20 @@ Este repositorio proporciona una guía para instalar todo lo necesario para trab
 
 ---
 ## Índice
-1. [¿Qué es Spring Boot?](#qué-es-spring-boot)
+1.[Mi Proyecto](#MiProyecto)
+2. [¿Qué es Spring Boot?](#qué-es-spring-boot)
    - [¿Para qué se utiliza?](#para-qué-se-utiliza)
    - [Características principales](#características-principales)
-2. [Introducción](#introducción)
-3. [Comparativa de frameworks](#comparativa-de-frameworks)
-4. [Requisitos previos](#requisitos-previos)
-5. [Instalación](#instalación)
+3. [Introducción](#introducción)
+4. [Comparativa de frameworks](#comparativa-de-frameworks)
+5. [Requisitos previos](#requisitos-previos)
+6. [Instalación](#instalación)
    - [Instalación en Windows](#1-instalación-en-windows)
    - [Instalación en Linux](#2-instalación-en-linux-debianubuntu)
-6. [Spring Initializr](#spring-initializr)
-7. [Probar el entorno](#probar-el-entorno)
-8. [API REST y peticiones](#api-rest-y-peticiones)
-9. [Servicios y repositorios](#servicios-y-repositorios)
+7. [Spring Initializr](#spring-initializr)
+8. [Probar el entorno](#probar-el-entorno)
+9. [API REST y peticiones](#api-rest-y-peticiones)
+10. [Servicios y repositorios](#servicios-y-repositorios)
 
 ---
 # MiProyecto
