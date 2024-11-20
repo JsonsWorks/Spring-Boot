@@ -220,3 +220,44 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long> {
     List<Jugador> findByEquipoNombre(String nombreEquipo);
 }
 ```
+## Métodos comunes en `JpaRepository`
+
+Spring Data JPA proporciona una interfaz rica con métodos predefinidos que simplifican la interacción con la base de datos.
+
+### Operaciones CRUD
+
+1. **Guardar o actualizar una entidad:**
+   ```java
+   T save(S entity);
+   ```
+Ejemplo:
+```java
+   Jugador jugador = new Jugador("Luis", "Equipo A");
+jugadorRepository.save(jugador);
+```
+2. **Encontrar una entidad por su ID:**
+```java
+   Optional<T> findById(ID id);
+```
+Ejemplo:
+```java
+   Optional<Jugador> jugador = jugadorRepository.findById(1L);
+jugador.ifPresent(System.out::println);
+```
+3. **Eliminar una entidad específica:**
+```java
+   void delete(T entity);
+```
+4. **Eliminar por ID:**
+```java
+   void deleteById(ID id);
+```
+5. **Obtener todas las entidades:**
+```java
+   List<T> findAll();
+```
+Ejemplo:
+```java
+   List<Jugador> jugadores = jugadorRepository.findAll();
+jugadores.forEach(System.out::println);
+```
