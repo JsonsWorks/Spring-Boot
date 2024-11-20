@@ -4,7 +4,7 @@ Este repositorio proporciona una guía para instalar todo lo necesario para trab
 
 ---
 ## Índice
-1.[Mi Proyecto](#MiProyecto)
+1. [Mi Proyecto](#MiProyecto)
 2. [¿Qué es Spring Boot?](#qué-es-spring-boot)
    - [¿Para qué se utiliza?](#para-qué-se-utiliza)
    - [Características principales](#características-principales)
