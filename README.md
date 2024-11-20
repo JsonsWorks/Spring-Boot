@@ -19,6 +19,12 @@ Este repositorio proporciona una guía para instalar todo lo necesario para trab
 9. [Servicios y repositorios](#servicios-y-repositorios)
 
 ---
+# MiProyecto
+
+Este proyecto utiliza recursos adicionales que puedes encontrar en el siguiente repositorio:
+
+- [Jugadores](https://github.com/Petriv2004/Jugadores)
+
 ## ¿Qué es Spring Boot?
 
 Spring Boot es un framework de código abierto basado en **Java** que simplifica el desarrollo de aplicaciones web y servicios RESTful. Es parte del ecosistema **Spring Framework** y está diseñado para reducir la configuración manual y promover buenas prácticas.
