@@ -1,271 +1,266 @@
-# Spring Boot Project Setup
+**Introducción:**
 
-Este repositorio proporciona una guía para instalar todo lo necesario para trabajar con proyectos de Spring Boot en **Windows** y **Linux**, junto con herramientas clave como PGAdmin y otros recursos útiles.
+Spring Boot es una extensión de Spring, este último es un Framework de desarrollo que permite crear aplicaciones empresariales robustas, escalables y seguras para Java, Kotlin y Groovy. Spring Boot simplifica aún más el desarrollo de aplicaciones al reducir la cantidad de configuración manual requerida y proporcionar características listas para usar.
 
----
-## Índice
-1. [Mi Proyecto](#MiProyecto)
-2. [¿Qué es Spring Boot?](#qué-es-spring-boot)
-   - [¿Para qué se utiliza?](#para-qué-se-utiliza)
-   - [Características principales](#características-principales)
-3. [Introducción](#introducción)
-4. [Comparativa de frameworks](#comparativa-de-frameworks)
-5. [Requisitos previos](#requisitos-previos)
-6. [Instalación](#instalación)
-   - [Instalación en Windows](#1-instalación-en-windows)
-   - [Instalación en Linux](#2-instalación-en-linux-debianubuntu)
-7. [Spring Initializr](#spring-initializr)
-8. [Probar el entorno](#probar-el-entorno)
-9. [API REST y peticiones](#api-rest-y-peticiones)
-10. [Servicios y repositorios](#servicios-y-repositorios)
+Esto último quiere decir que por la naturaleza del Framework reduce la necesidad de configuración manual a través de convenciones y autoconfiguración que ayudan a que la programación sea mucho más fácil e intuitiva.
 
----
-# MiProyecto
+Otra de las razones por las cuales nos llama la atención este Framework es debido a que para el desarrollo de plataformas web es de los Frameworks más conocidos para el lenguaje que se nos enseña principalmente en la universidad, es decir, Java.
 
-Este proyecto utiliza recursos adicionales que puedes encontrar en el siguiente repositorio:
+Algo importante a aclarar es que preferimos el uso de Spring Boot por encima del Spring ya que en Spring tradicional, necesitas configurar de forma explícita el contexto de aplicación y los beans, mientras que Spring Boot usa autoconfiguración.
 
-- [Jugadores](https://github.com/Petriv2004/Jugadores)
+A parte de utilizar Spring Boot, se utiliza Spring Data JPA (Java Persistence API) el cual es un ecosistema de Spring que proporciona una capa de abstracción para interactuar con bases de datos relacionales y no relacionales como lo puede ser en nuestro caso Postgresql. Una de las ventajas que ofrece este ecosistema es que el desarrollador se enfoca mucho más en la lógica de la base de datos antes que en la gestión manual de los datos, en donde para hacer CRUD hay que escribir menos código.
 
-## ¿Qué es Spring Boot?
+En esta presentación tenemos como propósito enseñar a utilizar tanto Spring Boot como Spring Data JPA para Java desde el editor de Intellij con la base de datos Postgresql con un ejemplo.
 
-Spring Boot es un framework de código abierto basado en **Java** que simplifica el desarrollo de aplicaciones web y servicios RESTful. Es parte del ecosistema **Spring Framework** y está diseñado para reducir la configuración manual y promover buenas prácticas.
+**Cifras:**  
+Existen varias empresas que utilizan spring como framework tanto para construir servicios en su arquitectura microservicios, mejor escalabilidad, rendimiento y aplicaciones backend.   
+Entre las empresas más famosas que lo utilizan son Netflix ($31.6 mil millones), Ebay ($9.8 mil millones), Alibaba ($125.5 mil millones), BMW ($132.2 mil millones), IBM ($60.5 mil millones) y entre otros.
 
-### ¿Para qué se utiliza?
+**Comparativa:7**
 
-Spring Boot es ampliamente utilizado para desarrollar:
-- **APIs RESTful**.
-- **Aplicaciones web** de back-end.
-- **Microservicios** escalables.
-- **Aplicaciones de línea de comandos**.
+Para haber decidido en conocer este framework lo comparamos con otros frameworks que sean útiles también para Java, de los cuales sacamos las siguientes conclusiones:
 
-### Características principales
+Java EE: Basado en especificaciones, contenedores de servlets, y componentes empresariales, su configuración puede ser extensa y engorrosa además de ser mucho menos popular y usada que Spring
 
-1. **Configuración automática:** Reduce el tiempo necesario para configurar dependencias y entornos.
-2. **Servidor integrado:** Permite ejecutar aplicaciones sin configurar un servidor externo como Tomcat o Jetty.
-3. **Manejo de dependencias:** Utiliza Maven o Gradle para gestionar librerías.
-4. **Compatible con microservicios:** Ofrece herramientas para crear arquitecturas basadas en microservicios.
-5. **Integración con bases de datos:** Soporte nativo para bases de datos como PostgreSQL y H2.
+Grails: Comparado con Spring, la documentación puede ser menos extensa.
 
----
-## Introducción
+Play Framework: La programación reactiva (paradigma de programación que se centra en la gestión de flujos de datos y la propagación de cambios) puede ser desafiante para quienes están acostumbrados a enfoques más tradicionales.
 
-Spring Boot es una extensión de Spring, que permite crear aplicaciones empresariales robustas, escalables y seguras para Java, Kotlin y Groovy. Su naturaleza de autoconfiguración lo hace más fácil de usar que el Spring tradicional.
+Micronaut: Muy joven y al igual que con Java EE carece de popularidad a comparación con Spring por lo que también tiene una comunidad pequeña.  
+**Justificación:**
 
-Además, el ecosistema **Spring Data JPA** simplifica la interacción con bases de datos relacionales, permitiendo al desarrollador centrarse en la lógica del negocio.
+Por estas razones, popularidad, gran uso de otras empresas, facilidad, simplificación de código, y en general la convivencia es que elegimos este framework para aprender y presentar.
 
----
-## Comparativa de frameworks
+**![][image1]**  
+Este es el modelado para realizar el ejemplo en la explicación.
 
-Se eligió Spring Boot frente a otros frameworks populares para Java debido a su:
+**PETICIONES**
 
-1. **Popularidad:** Utilizado por empresas como Netflix, eBay y Alibaba.
-2. **Facilidad de uso:** Menos configuración y más enfoque en el desarrollo.
-3. **Documentación extensa:** Comparado con Grails y Play Framework.
-4. **Comunidad:** Mayor que Micronaut y Java EE.
+**API REST**
 
----
-## Requisitos previos
+Rest (Representational State Transfer) es una arquitectura para APIs normalmente basada en la web que define un conjunto de restricciones para crear servicios web,  REST se utiliza principalmente para construir APIs en la web que permiten interactuar con aplicaciones a través del protocolo HTTP.
 
-### General
-- JDK 17 o superior.
-- Maven (opcional si tu editor de código lo gestiona automáticamente).
-- Editor de código (opcional):
-  - [Visual Studio Code](https://code.visualstudio.com/)
-  - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-  - [NetBeans](https://netbeans.apache.org/)
-  - [Eclipse](https://www.eclipse.org/)
+Los principios de REST son:
 
----
+* Cliente-servidor: El cliente (por ejemplo, una aplicación frontend) solicita recursos al servidor, que los proporciona.  
+* Sin estado (Stateless): Cada petición HTTP desde el cliente al servidor debe contener toda la información necesaria para que el servidor la procese. El servidor no almacena el estado de la sesión entre solicitudes.  
+* Cacheable: Las respuestas deben ser cacheables (cuando sea apropiado), para mejorar el rendimiento.  
+* Interfaz uniforme: Todas las interacciones entre cliente y servidor deben seguir una interfaz estándar. Normalmente, esto se basa en métodos HTTP como GET, POST, PUT, DELETE para interactuar con recursos.  
+* Recursos: En REST, los elementos con los que se trabaja son representaciones de recursos, que suelen estar identificados por un URI (Uniform Resource Identifier), como /users, /orders, etc.  
+* Representación de recursos: Los recursos se transfieren en representaciones como JSON, XML, HTML, etc.
 
-## Instalación
+**OTRAS APIS**
 
-### 1. Instalación en Windows
+ API SOAP: (Simple Object Access Protocol), que es otra arquitectura popular para APIs web, utiliza el protocolo SOAP y XML para el intercambio de información. 
 
-#### JDK (Java Development Kit)
-1. Descarga el instalador de la página oficial de [Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) o [Adoptium](https://adoptium.net/).
-2. Sigue las instrucciones del instalador para configurar el **JAVA_HOME**.
+APIs locales: Como las APIs de un framework como `Swing` en Java, que proporciona componentes gráficos para crear interfaces de usuario.
 
-#### PostgreSQL y PGAdmin
-1. Descarga PostgreSQL desde [aquí](https://www.postgresql.org/download/windows/).
-2. Durante la instalación, asegúrate de seleccionar **PGAdmin**.
-3. Configura un usuario y contraseña para la base de datos.
-4. Para más detalles [aquí](WINDOWS-64BITS.md)
+**EJEMPLO**
 
+1. Obtener todos los Jugadores:  
+   * Método HTTP: `GET`  
+   * URI: `/Jugadores`  
+   * Respuesta: JSON con la lista de Jugadores.  
+2. Crear una nueva publicación:  
+   * Método HTTP: `POST`  
+   * URI: `/Jugadores`  
+   * Cuerpo: Un objeto JSON con los detalles del jugador inscrito.  
+3. Actualizar un usuario:  
+   * Método HTTP: `PUT`  
+   * URI: `/Jugadores/1`  
+   * Cuerpo: Un objeto JSON con los datos actualizados del Jugador.  
+4. Eliminar una publicación:  
+   * Método HTTP: `DELETE`  
+   * URI: `/Jugador/5`  
+   * Elimina la Jugador con ID `5`
 
----
-## Spring Initializr
+**Servicios**
 
-[Spring Initializr](https://start.spring.io/) es una herramienta web que permite generar proyectos Spring Boot personalizados. Facilita la configuración inicial de tu proyecto y la selección de dependencias necesarias.
+En Spring Boot, un servicio es una clase con lógica de negocio o funcionalidad específica que puede ser reutilizada en distintas partes de la aplicación. Los servicios son parte de la capa de servicio (o capa de lógica de negocio) y suelen interactuar con la capa de acceso a datos (repositorios) para realizar operaciones sobre la base de datos, aplicar reglas de negocio, o transformar datos antes de enviarlos a la capa de presentación o controlador.
 
-### ¿Cómo usarlo?
+Marcación con `@Service`: Los servicios en Spring Boot se definen con la anotación `@Service`, que indica que la clase es un componente de servicio gestionado por el contenedor de Spring.
 
-1. Accede a [Spring Initializr](https://start.spring.io/).
-2. Configura tu proyecto con los siguientes parámetros:
-   - **Project:** Maven o Gradle.
-   - **Language:** Java.
-   - **Spring Boot Version:** Elige una versión estable (recomendado: 2.7.x o superior).
-   - **Group:** Tu nombre de paquete base (por ejemplo, `com.ejemplo`).
-   - **Artifact:** El nombre del proyecto.
-   - **Dependencies:** Selecciona las dependencias necesarias, como:
-     - Spring Web (para crear APIs RESTful).
-     - Spring Data JPA (para integración con bases de datos).
-     - PostgreSQL Driver (para conectar con PostgreSQL).
-     - Spring Boot DevTools (para recarga automática durante el desarrollo).
-3. Haz clic en **Generate** y descarga el archivo ZIP.
-4. Extrae el archivo y ábrelo en tu editor de código preferido.
----
-## Probar el entorno
+![][image2]
 
-1. Clona este repositorio:
-```bash
-git clone https://github.com/Chakerr/Spring-Boot.git
-```
-2. Importa el proyecto generado desde Spring Initializr en tu editor.
-Configura la base de datos PostgreSQL en el archivo application.properties o application.yaml
-```bash
-spring.datasource.url=jdbc:postgresql://localhost:5432/tu_base_datos
-spring.datasource.username=postgres
-spring.datasource.password=tu-contraseña
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
+Propósito Principal: Los servicios centralizan la lógica de negocio, manteniendo a los controladores más ligeros y enfocados en manejar las solicitudes y respuestas HTTP. La capa de servicio interactúa con los repositorios para realizar las operaciones necesarias y procesar datos.
 
-```
-4. Ejecuta el proyecto en tu editor y verifica que funcione correctamente.
----
+**Configuración y dependencias:**
 
-## API REST y peticiones
+1. **Spring Boot Starters para manejar dependencias**  
+   Los starters son paquetes que simplifican la carga de dependencias, para en vez de agregar cada dependencia de manera individual, los starters se encargan de agrupar las dependencias necesarias para cada funcionalidad. Esto facilita a que los proyectos comiencen rápidamente y se priorice la lógica con el objetivo de no preocuparse por la gestión de múltiples bibliotecas  
+     
+   Por ejemplo, el spring-boot-starter-web trae todo lo necesario para crear aplicaciones web: incluye dependencias como Spring MVC, Tomcat como servidor embebido y utilidades para construir APIs REST, también el spring-boot-starter-data-jpa, incluye JPA (Java Persistence API) y el conector de la base de datos H2.  
+     
+   Estos paquetes simplifican la gestión de dependencias, donde garantizan la compatibilidad entre versiones y reducen los errores y conflictos de versiones al venir preconfiguradas  
+     
+2. **Configuración del proyecto: application.properties y application.yaml**  
+   Son archivos donde se configuran los aspectos claves del proyecto, tales como la conexión a la base de datos, configuraciones de correo para sus envíos, puertos, etc. Adicionalmente permiten centralizar la configuración del proyecto y posteriormente ajustar para diferentes entornos.  
+- application.properties es un archivo cuya configuración es a partir de una sintaxis clave valor, siendo más utilizado en proyectos Java  
+- application.yaml es un archivo cuya configuración está basada en un formato YAML, es decir, un archivo de configuración de sintaxis sencilla y legible cuya representación de datos está de forma jerárquica.
 
-En Spring Boot, puedes construir APIs RESTful para interactuar con tu aplicación mediante el protocolo HTTP. Aquí tienes un ejemplo de las operaciones CRUD para una entidad `Jugador`:
+**¿Qué es JPA?**
 
-1. **Obtener todos los jugadores:**
-   - **Método HTTP:** `GET`
-   - **Endpoint:** `/jugadores`
-   - **Descripción:** Devuelve una lista de todos los jugadores.
-   - **Ejemplo de respuesta:**
-     ```json
-     [
-       {
-         "id": 1,
-         "nombre": "Luis",
-         "equipo": "Equipo A"
-       },
-       {
-         "id": 2,
-         "nombre": "Ana",
-         "equipo": "Equipo B"
-       }
-     ]
-     ```
+JPA (Java Persistence API) es **una herramienta que facilita la interacción entre las aplicaciones Java y las bases de datos**.
 
-2. **Crear un jugador:**
-   - **Método HTTP:** `POST`
-   - **Endpoint:** `/jugadores`
-   - **Descripción:** Crea un nuevo jugador.
-   - **Cuerpo de la solicitud:**
-     ```json
-     {
-       "nombre": "Carlos",
-       "equipo": "Equipo C"
-     }
-     ```
+### **Explicación Sencilla:**
 
-3. **Actualizar un jugador:**
-   - **Método HTTP:** `PUT`
-   - **Endpoint:** `/jugadores/{id}`
-   - **Descripción:** Actualiza un jugador existente por su ID.
-   - **Cuerpo de la solicitud:**
-     ```json
-     {
-       "nombre": "Carlos Gómez",
-       "equipo": "Equipo C"
-     }
-     ```
+* **Qué es JPA**: JPA es una especificación de Java que te permite trabajar con bases de datos usando objetos de Java en lugar de escribir consultas SQL complejas.  
+* **Cómo Funciona**: Imagina que tienes una clase Java llamada `Jugador` con atributos como `nombre`, `edad`, etc. JPA te permite guardar objetos de esa clase directamente en la base de datos y también recuperarlos fácilmente.  
+* **Ventajas**:  
+  1. **Menos Código SQL**: En lugar de escribir muchas líneas de SQL, puedes trabajar con métodos y objetos de Java.  
+  2. **Portabilidad**: JPA funciona con diferentes bases de datos (MySQL, PostgreSQL, Oracle, etc.) sin necesidad de cambiar tu código.  
+  3. **Mantenimiento Simplificado**: Al usar JPA, el código es más limpio y más fácil de entender.
 
-4. **Eliminar un jugador:**
-   - **Método HTTP:** `DELETE`
-   - **Endpoint:** `/jugadores/{id}`
-   - **Descripción:** Elimina un jugador existente por su ID.
+**¿Cómo conectar la base de datos con el archivo de Spring Boot?**  
+![][image3]  
+En la carpeta de resources al archivo que tiene el nombre de application.properties, le cambiamos el nombre a application.yaml, que es donde irán las configuraciones para conectar la base de datos. 
 
----
+Lo cual contendrá este código:
 
-## Servicios y repositorios
+\#\# YAML Template.  
+\---  
+spring:  
+  datasource:  
+    url: jdbc:postgresql://localhost:5432/ejemplo1 \-\> es la dirección de la base de datos PostgreSQL   
+    username: postgres \-\> el nombre de usuario para conectarse a la base de datos  
+    password: \-\> la contraseña para el usuario de la base de datos  
+    driver-class-name: org.postgresql.Driver \-\> es el controlador JDBC de PostgreSQL que Spring Boot utiliza para conectarse a la base de datos.  
+  jpa:  
+    hibernate: \-\> se encarga de traducir las operaciones de objetos a instrucciones SQL, y viceversa  
+      ddl-auto: update \-\> Hibernate actualizará automáticamente el esquema de la base de datos basado en las entidades de la aplicación  
+    show-sql: true \-\> Hace que las consultas SQL generadas por Hibernate se muestran en la consola durante la ejecución del programa.  
+    properties:  
+      hibernate:  
+        format\_sql: true \-\> Hace que las consultas SQL sean más legibles  
+    database: postgresql \-\> indica que el tipo de base de datos es PostgreSQL  
+    database-platform: org.hibernate.dialect.PostgreSQLDialect \-\> define el dialecto que Hibernate utilizará para generar SQL específico para PostgreSQL
 
-### Servicios
+Luego que ya saber cómo generar el archivo de SpringBoot, les voy a explicar como crear una base de datos, ejecuten estos comandos en la consola de linux:
 
-Los servicios en Spring Boot gestionan la lógica del negocio y permiten mantener los controladores más ligeros. Se definen con la anotación `@Service`.
+sudo \-u postgres psql \-\> entrar a la consola de psql  
+CREATE DATABASE mi\_base\_datos; \-\> crear la base de datos  
+\\l \-\> ver que si se creó  
+\\q \-\> salir de la revisión
 
-**Ejemplo de servicio:**
-```java
-@Service
-public class JugadorService {
-    private final JugadorRepository jugadorRepository;
+Vamos a conectar la base de datos a nuestro archivo con SpringBoot:
 
-    public JugadorService(JugadorRepository jugadorRepository) {
-        this.jugadorRepository = jugadorRepository;
-    }
+Instalamos el plugin DB Navigator:   
+![][image4]   ![][image5]
 
-    public List<Jugador> obtenerJugadores() {
-        return jugadorRepository.findAll();
-    }
+Acá podemos comprobar que la conexión con la base de datos es exitosa:
 
-    public Jugador guardarJugador(Jugador jugador) {
-        return jugadorRepository.save(jugador);
-    }
-}
-```
----
+Ahora voy a explicar las entidades:  
+Las entidades JPA son clases de Java que representan tablas en una base de datos relacional. Se utilizan para mapear objetos Java a tablas de bases de datos, lo que permite a los desarrolladores trabajar con datos relacionales utilizando objetos Java.
 
-## Repositorios
+**Anotaciones principales de las entidades**  
+\-@Entity: Marca la clase de java como una entidad JPA, lo que significa que será mapeada a una tabla en la clase en la base de datos.  
+\-@Table: Es una anotación opcional, se puede usar para especificar el nombre de la tabla y otros detalles de la tabla en la base de datos.  
+![][image6]  
+Si no se tiene la anotación @Table la tabla será creada con el nombre de la clase.  
+\-@Id: Marca el atributo como la clave primaria de la identidad.  
+\-@GenerateValue Opcionalmente, se puede usar junto con la anotación @Id para especificar cómo se generará el valor de la clave primaria:
 
-En Spring Boot, los repositorios son componentes que permiten la interacción directa con la base de datos. Se implementan utilizando Spring Data JPA y se definen como interfaces que extienden `JpaRepository`.
+GenerationType.AUTO: Permite a JPA elegir la estrategia de generación de claves automáticamente según el proveedor de la base de datos. Es el valor predeterminado.
 
-### Ejemplo de repositorio
+GenerationType.IDENTITY: Utiliza una columna de incremento automático de la base de datos. Este valor es ideal si estás usando bases de datos que soportan columnas auto-incrementales, como MySQL.
 
-```java
-@Repository
-public interface JugadorRepository extends JpaRepository<Jugador, Long> {
-    // Consulta personalizada: Buscar jugadores por el nombre de su equipo
-    List<Jugador> findByEquipoNombre(String nombreEquipo);
-}
-```
-## Métodos comunes en `JpaRepository`
+GenerationType.SEQUENCE: Usa secuencias de base de datos para generar el valor de la clave primaria. Esto es útil en bases de datos que tienen soporte para secuencias, como PostgreSQL y Oracle. Para utilizar esta estrategia, normalmente debes definir una secuencia en la base de datos y, opcionalmente, puedes especificar su nombre con la anotación @SequenceGenerator.
 
-Spring Data JPA proporciona una interfaz rica con métodos predefinidos que simplifican la interacción con la base de datos.
+GenerationType.TABLE: Almacena el último valor de la clave en una tabla especial en la base de datos y usa este valor para generar claves únicas. Este enfoque es útil para bases de datos que no admiten incrementos automáticos o secuencias, pero puede tener un rendimiento inferior en comparación con otras estrategias.
 
-### Operaciones CRUD
+\-@Column: Permite personalizar el mapeo entre el atributo de la clase y la columna en la tabla de la base de datos.  
+ ![][image7]  
+\-@Transient: Marca un atributo de la clase como no persistente, lo que significa que no se mapeará a una columna en la tabla de la base de datos.  
+\-@Temporal: Se utiliza para indicar cómo se debe tratar una propiedad de tipo java.util.Date o java.util.Calendar cuando se mapea a una base de datos.  
+![][image8]día, mes y año  
+![][image9]hora, minutos y segundos  
+![][image10]día, mes, año y hora, minutos y segundos
 
-1. **Guardar o actualizar una entidad:**
-```java
-T save(S entity);
-```
-Ejemplo:
-```java
-Jugador jugador = new Jugador("Luis", "Equipo A");
-jugadorRepository.save(jugador);
-```
-2. **Encontrar una entidad por su ID:**
-```java
-Optional<T> findById(ID id);
-```
-Ejemplo:
-```java
-Optional<Jugador> jugador = jugadorRepository.findById(1L);
-jugador.ifPresent(System.out::println);
-```
-3. **Eliminar una entidad específica:**
-```java
-void delete(T entity);
-```
-4. **Eliminar por ID:**
-```java
-void deleteById(ID id);
-```
-5. **Obtener todas las entidades:**
-```java
-List<T> findAll();
-```
-Ejemplo:
-```java
-List<Jugador> jugadores = jugadorRepository.findAll();
-jugadores.forEach(System.out::println);
-```
+Las entidades se almacenan en la carpeta de models siguiendo el patrón de MVC.
+
+Ahí se explican las entidades del ejemplo.
+
+**Anotaciones para Relaciones entre Tablas**  
+Desde las clases de modelo, se codifica, desde las entidades, las relaciones que se van a establecer las distintas tablas.  
+@ManytoOne  
+![][image11]  
+Desde la clase jugador se crea una relación de Muchos a uno para muchos jugadores a un equipo.  
+Se crea el atributo con la llave foránea llamado “equipo \_id” que pertenece a la entidad de Jugadores  
+Instancia un equipo de tipo Equipo que demuestra que cada que se cree un Jugador habrá una instancia de un Equipo asociada a dicho jugador  
+@OnetoMany  
+![][image12]  
+Relación de uno a muchos de la entidad de Equipo a Jugadores  
+El primer atributo mappedBy le da la responsabilidad a la propiedad equipo de la Lista de Jugadores.  
+El segundo atributo especifica cómo se comportará la cascada para la relación la cual puede ser de las siguientes tres maneras:
+
+1. Persistencia (PERSIST)  
+2. Eliminación (REMOVE): Si eliminas una entidad, todas las entidades relacionadas serán eliminadas igualmente   
+3. Fusión (MERGE): Si actualizas una entidad, las relacionadas serán actualizadas igualmente (se utiliza para guardar datos)  
+4. Refrescar (REFRESH): Si refrescas una entidad, las relacionadas serán actualizadas en la base de datos (se utiliza para la restauración de datos)  
+5. Desvinculación (DETACH): Se refiere a desvinculación con la operación de quitar el contexto de persistencia a una entidad junto con sus relaciones. (desincronización con la base de datos )  
+6. Todas (ALL): Son todos los anteriores comportamientos para la relación entre Equipo y Jugadores
+
+Por último se crea una lista con instancias de tipo Jugador para muchos jugadores.  
+@ManytoMany  
+![][image13]  
+Desde la entidad de Jugadores se establece la relación de muchos a muchos jugadores  
+@JoinTable es la notación que se usa para definir la tabla intermedia y guardar los datos de ambas tablas.  
+Se le da el nombre a la tabla, se especifican los atributos foráneos que se le dará a la tabla incluyendo jugador id y campeonato \_id uniendo las distintas columnas.  
+Al igual que con  One to Many se crea una lista pero en este caso para campeonato.  
+![][image14]  
+También desde la tabla de campeonatos se agrega la notación ManyToMany con la diferencia que no se incluye la notación de Join Table puesto que esta ya se estableció en la entidad de jugador.
+
+Para mirar las tablas creadas por la terminal, se hace:
+
+sudo \-u postgres psql \-\> entrar a la consola de psql  
+\\l  
+\\c \-\> nombre\_base\_datos  
+\\dt \-\> mostrar las tablas
+
+**Repositorios**  
+Un repositorio es un componente que actúa como puente entre la aplicación y la base de datos. Los repositorios en Spring Data JPA están diseñados para aprovechar las capacidades de JPA y facilitar las operaciones con la base de datos.
+
+La interfaz JpaRepository\<T, ID\> extiende CrudRepository y PaginAndSortingRepository, lo que da acceso a una amplia gama de métodos predefinidos.
+
+**Sintaxis del repositorio**  
+Para crear un repositorio, solo se necesita definir una interfaz que extienda de JpaRepository. La interfaz pide dos parámetros:
+
+\-T: La entidad sobre la que se va a realizar la persistencia  
+\-ID: El tipo de dato de la clave primaria de la entidad.
+
+La interfaz JpaRepository proporciona muchos métodos útiles para trabajar con entidades. Algunos de los más comunes son:
+
+**Operaciones CRUD:**  
+save(S entity): Guarda o actualiza una entidad en la base de datos.  
+findById(ID id): Encuentra una entidad por su clave primaria.  
+findAll(): Recupera todas las entidades del repositorio.  
+delete(T entity): Elimina una entidad de la base de datos.  
+deleteById(ID id): Elimina una entidad por su clave primaria.
+
+**Paginación y Ordenación:**  
+findAll(Sort sort): Encuentra todas las entidades y las ordena.
+
+**Consulta personalizada**  
+También se puede definir consultas personalizadas y más complejas utilizando la la anotación de @Query. 
+
+Por ejemplo:  
+@Query("SELECT j FROM Jugador j WHERE j.equipo.nombre \= :nombreEquipo") List\<Jugador\> findJugadoresByEquipoNombre(@Param("nombreEquipo") String nombreEquipo);
+
+@Param("nombreEquipo"): Esta anotación vincula el parámetro de la consulta :nombreEquipo con el argumento que le pasas al método en tiempo de ejecución. Es decir, el valor del argumento nombreEquipo que le pases cuando llames al método será utilizado para reemplazar el parámetro :nombreEquipo en la consulta.
+
+Los  “:” indica que se va a pasar un parámetro en tiempo de ejecución.
+
+nativeQuery \= true: Indica que la consulta está escrita en SQL nativo y no en JPQL. Esto significa que la consulta interactúa directamente con las tablas de la base de datos en lugar de trabajar con las entidades de JPA.
+
+1\. **Lombok**: Es una biblioteca que reduce el código repetitivo en Java, como getters, setters, toString, equals, y hashCode. Al agregar Lombok, puedes usar anotaciones como @Getter, @Setter, @ToString, @EqualsAndHashCode, y @AllArgsConstructor, entre otras, que Lombok procesará en tiempo de compilación para generar este código automáticamente.
+
+2\. **Spring Web**: Esta dependencia incluye las herramientas necesarias para construir aplicaciones web, incluyendo aplicaciones RESTful. Al agregarla, obtienes soporte para el modelo de programación MVC (Modelo-Vista-Controlador) de Spring, que permite crear endpoints, gestionar solicitudes HTTP, y desarrollar APIs web.
+
+3\. **Spring Data JPA**: Proporciona una implementación de JPA (Java Persistence API) de Spring, que facilita la interacción con bases de datos relacionales. Con esta dependencia, puedes crear repositorios para interactuar con tus entidades de base de datos de forma fácil y sin escribir mucho código SQL, ya que Spring Data JPA genera las consultas automáticamente a partir de los métodos definidos en tus interfaces de repositorio.
+
+4\. **PostgreSQL Driver**: Es el controlador JDBC para la base de datos PostgreSQL. Necesitas este controlador para que tu aplicación Spring Boot pueda conectarse y comunicarse con una base de datos PostgreSQL, permitiéndote realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) en la base de datos.
+
+Referencias  
+[https://www.tutorialesprogramacionya.com/springbootya/detalleconcepto.php?punto=13\&codigo=14\&inicio=0](https://www.tutorialesprogramacionya.com/springbootya/detalleconcepto.php?punto=13&codigo=14&inicio=0)   
+[https://programandoenjava.com/jparepository-en-spring-data/](https://programandoenjava.com/jparepository-en-spring-data/) 
+
