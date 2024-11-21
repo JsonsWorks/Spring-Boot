@@ -107,7 +107,7 @@ Spring Boot usa **starters** para simplificar la carga y gestión de dependencia
 - **spring-boot-starter-web**: Para crear aplicaciones web y APIs REST.  
 - **spring-boot-starter-data-jpa**: Para manejar operaciones con bases de datos.
 
-Al descargar el archivo de [Spring Initializr](https://start.spring.io) con las dependencias necesarias para el proyecto, se genera un archivo **pom.xml**, el cual trae consigo todas las dependencias agrupadas
+Al descargar el archivo de [Spring Initializr](https://start.spring.io) con las dependencias necesarias para el proyecto, se genera un archivo **pom.xml**, el cual trae consigo todas las dependencias agrupadas.
 
 ### **Archivos de Configuración:**
 1. **application.properties**: Configuración basada en un formato clave-valor.  
