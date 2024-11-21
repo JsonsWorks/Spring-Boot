@@ -129,7 +129,7 @@ spring:
       hibernate:
         format_sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    mail:
+  mail:
       host: smtp.gmail.com
       port: 587 ##puerto por defecto
       username: tucorreo@gmail.com
