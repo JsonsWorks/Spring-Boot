@@ -4,7 +4,7 @@
 
 - PostgreSQL/ pgAdmin4
 - Postman
-- Cualquier IDE de su preferencia
+- Cualquier IDE de su preferencia, en nuestro caso IntelliJ IDEA
 
 ## Paso Opcional: Desinstalación de PostgreSQL Previo
 
