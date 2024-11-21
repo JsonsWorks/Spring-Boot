@@ -4,7 +4,7 @@
 
 - PostgreSQL/ pgAdmin4
 - Postman
-- Cualquier IDE de su preferencia, en nuestro caso IntelliJ IDEA
+- Cualquier IDE de su preferencia
 
 ## Paso Opcional: Desinstalación de PostgreSQL Previo
 
@@ -62,7 +62,7 @@ Para listar todas las bases de datos:
 ```
 \l
 ```
-![Listado](/linux-img/foto1.png)
+![Listado](img/foto1.png)
 
 Para salir:
 ```
@@ -79,7 +79,7 @@ sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_
 sudo apt install pgadmin4
 ```
 
-![Logo PgAdmin](/linux-img/foto2.png)
+![Logo PgAdmin](img/foto2.png)
 
 ## Cuarto Paso: Instalación de Postman
 
@@ -89,7 +89,7 @@ sudo apt install snapd
 sudo snap install postman
 ```
 
-![Logo Postman](/linux-img/foto3.png)
+![Logo Postman](img/foto3.png)
 
 ## Quinto Paso: Instalación de IntelliJ IDEA
 
@@ -100,7 +100,7 @@ sudo snap install intellij-idea-community --classic
 intellij-idea-community
 ```
 
-![Logo IntelliJ](/linux-img/foto4.png)
+![Logo IntelliJ](img/foto4.png)
 
 ## Séptimo Paso: Importar Proyecto de Ejemplo
 
@@ -111,26 +111,26 @@ git clone https://github.com/Petriv2004/Jugadores
 ### Pasos en IntelliJ:
 
 1. Abrir IntelliJ
-   ![IntelliJ Inicio](/linux-img/foto5.png)
+   ![IntelliJ Inicio](img/foto5.png)
 
 2. Abrir proyecto clonado
-   ![Abrir Proyecto](/linux-img/foto6.png)
+   ![Abrir Proyecto](img/foto6.png)
 
 3. Añadir como Proyecto Maven
-   ![Añadir Maven](/linux-img/foto7.png)
+   ![Añadir Maven](img/foto7.png)
 
 4. Marcar directorio Java como Sources Root
-   ![Sources Root](/linux-img/foto8.png)
+   ![Sources Root](img/foto8.png)
 
 5. Configurar `application.yaml`
-   ![Configuración YAML](/linux-img/foto9.png)
-   ![Configuración Credenciales](/linux-img/foto10.png)
+   ![Configuración YAML](img/foto9.png)
+   ![Configuración Credenciales](img/foto10.png)
 
 6. Ejecutar aplicación
-   ![Ejecución Aplicación](/linux-img/foto11.png)
+   ![Ejecución Aplicación](img/foto11.png)
 
 7. Verificar tablas en pgAdmin4
-   ![Tablas en pgAdmin](/linux-img/foto12.png)
+   ![Tablas en pgAdmin](img/foto12.png)
 
 ## Octavo Paso: Peticiones con Postman
 
@@ -143,7 +143,7 @@ localhost:8080/campeonatos/add
   "nombre": "La Liga"
 }
 ```
-![POST Campeonato](/linux-img/foto13.png)
+![POST Campeonato](img/foto13.png)
 
 #### Equipos
 ```
@@ -152,7 +152,7 @@ localhost:8080/equipos/add
   "nombre": "R. Madrid"
 }
 ```
-![POST Equipo](/linux-img/foto14.png)
+![POST Equipo](img/foto14.png)
 
 ### PUT Requests
 
@@ -179,7 +179,7 @@ localhost:8080/jugador/1
   ]
 }
 ```
-![PUT Jugador](/linux-img/foto15.png)
+![PUT Jugador](img/foto15.png)
 
 #### Equipos y Campeonatos
 ```
@@ -193,8 +193,8 @@ localhost:8080/campeonatos/2
   "nombre": "La Liga"
 }
 ```
-![PUT Equipo](/linux-img/foto16.png)
-![PUT Campeonato](/linux-img/foto17.png)
+![PUT Equipo](img/foto16.png)
+![PUT Campeonato](img/foto17.png)
 
 ### GET Requests (Sin Cuerpo)
 

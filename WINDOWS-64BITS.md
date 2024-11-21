@@ -12,31 +12,31 @@
 ingresar a https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 seleccionamos Windows x86-64 con la version **17**
 
-![foto17](windows-img/foto17.png)
+![foto18](img/foto18.png)
 
 **Segundo Paso**
 
 una vez ya descargado el instalador se ejecuta y pregunta la ruta donde quiere instalar postgres
 
-![foto1](windows-img/foto1.png)
+![foto19](img/foto19.png)
 
 **Tercer Paso**
 
 Seleccionamos qué programas queremos descargar y seleccionamos todos, ya que el primero es el servidor, el segundo es la interfaz gráfica, el tercero es el instalador y el cuarto es un programa que funciona desde la consola.
 
-![foto2](windows-img/foto2.png)
+![foto20](img/foto20.png)
 
 **Cuarto Paso**
 
 Ingresar unas credenciales para poder ingresar a postgresql
 
-![foto3](windows-img/foto3.png)
+![foto21](img/foto21.png)
 
 **Quinto Paso**
 
 Dejamos el puerto por defecto de postgres 5432
 
-![foto4](windows-img/foto4.png)
+![foto22](img/foto22.png)
 
 **Inicio de stack builder**
 
@@ -44,13 +44,13 @@ Dejamos el puerto por defecto de postgres 5432
 
 seleccionamos postgresql y damos click a siguiente
 
-![foto5](windows-img/foto5.png)
+![foto23](img/foto23.png)
 
 **SÉPTIMO PASO**
 
 donde dice database drivers seleccionamos la opción jdbc y en el apartado de web development la que dice httpd 59-1
 
-![foto6](windows-img/foto6.png)
+![foto24](img/foto24.png)
 
 **OCTAVO PASO**
 
@@ -61,30 +61,30 @@ Una vez terminada la instalación ya tenemos postgresql y pgAdmin, la interfaz p
 
 ingresamos a https://www.postman.com/downloads/ damos click en instalar para windows x64 e iniciamos sesión con nuestra cuenta de google
 
-![foto7](windows-img/foto7.png)
+![foto25](img/foto25.png)
 
 **DÉCIMO PASO**
 
 ingresamos a https://www.oracle.com/co/java/technologies/downloads/ y seleccionamos esta opcion
 
-![foto8](windows-img/foto8.png)
+![foto26](img/foto26.png)
 
 **ONCEAVO PASO**
 
 Damos click a next hasta finalizar la instalación
 
-![foto9](windows-img/foto9.png)
+![foto27](img/foto27.png)
 
 **DOCEAVO PASO**
 
 Ingresamos a https://code.visualstudio.com/ damos click en  instalar para windows.
 
-![foto16](windows-img/foto16.png)
+![foto28](img/foto28.png)
 
 **TRECEAVO PASO**
 Seleccionamos la ruta que deseemos y damos a siguiente.
 
-![foto10](windows-img/foto10.png)
+![foto29](img/foto29.png)
 
 en los siguientes pop ups dejamos las opciones por defecto y le damos a instalar .
 
@@ -92,11 +92,11 @@ en los siguientes pop ups dejamos las opciones por defecto y le damos a instalar
 
 en abrimos visual studio code y seleccionamos este icono ubicado en la parte superior izquierda.
 
-![foto11](windows-img/foto11.png)
+![foto30](img/foto30.png)
 
 y descargamos la siguiente extensión.
 
-![foto12](windows-img/foto12.png)
+![foto31](img/foto31.png)
 
 Una vez tengamos ya descargadas estas tres herramientas nos vamos a dirigir a github a clonar el repositorio del proyecto con spring.
 
@@ -104,7 +104,7 @@ Una vez tengamos ya descargadas estas tres herramientas nos vamos a dirigir a gi
 
 creamos una carpeta con el nombre que queramos y clonamos el repositorio de github.
 
-![foto13](windows-img/foto13.png)
+![foto32](img/foto32.png)
 
 en la consola ejecutamos el comando git clone https://github.com/Petriv2004/Jugadores.git
 
@@ -112,7 +112,7 @@ en la consola ejecutamos el comando git clone https://github.com/Petriv2004/Juga
 
 Abrimos el proyecto con visual studio code y entramos a la configuración del programa y ponemos nuestras credenciales en el archivo application.yaml ubicado en la carpeta resources del proyecto.
 
-![foto14](windows-img/foto14.png)
+![foto33](img/foto33.png)
 
 veremos un archivo de configuración como este y en la parte de username y password ponemos las credenciales que pusimos para la base de datos en el instalador de postgres.
 
@@ -124,7 +124,7 @@ Nos dirigimos a la clase principal del proyecto que se llama jugadoresApplicatio
 
 En la parte superior Izquierda especificamos el tipo de petición que vamos a hacer en este caso post, a la derecha ingresamos la url del backend con su cuerpo en formato json y con esta petición podemos agregar el jugador.
 
-![foto15](windows-img/foto15.png)
+![foto34](img/foto34.png)
 
 **TODAS LAS PETICIONES**
 
