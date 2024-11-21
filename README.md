@@ -103,13 +103,15 @@ Elegimos Spring Boot por su popularidad, facilidad de uso, menor cantidad de có
 ## **Configuración del Proyecto:**
 
 ### **Dependencias en Spring Boot:**
-Spring Boot usa **starters** para simplificar la gestión de dependencias. Algunos starters útiles incluyen:  
-- **spring-boot-starter-web**: Para aplicaciones web y APIs REST.  
-- **spring-boot-starter-data-jpa**: Para operaciones con bases de datos.  
+Spring Boot usa **starters** para simplificar la carga y gestión de dependencias, con el objetivo de agrupar las dependencias necesarias para cada funcionalidad en vez de agregar cada dependencia de manera manual. Algunos starters útiles incluyen:  
+- **spring-boot-starter-web**: Para crear aplicaciones web y APIs REST.  
+- **spring-boot-starter-data-jpa**: Para manejar operaciones con bases de datos.
+
+Al descargar el archivo de [Spring Initializr](https://start.spring.io) con las dependencias necesarias para el proyecto, se genera un archivo **pom.xml**, el cual trae consigo todas las dependencias agrupadas
 
 ### **Archivos de Configuración:**
-1. **application.properties**: Configuración en formato clave-valor.  
-2. **application.yaml**: Configuración jerárquica en formato YAML.  
+1. **application.properties**: Configuración basada en un formato clave-valor.  
+2. **application.yaml**: Configuración jerárquica en formato YAML, cuya sintáxis es sencilla y legible.  
 
 ### Ejemplo de configuración YAML:
 ```yaml
@@ -126,4 +128,16 @@ spring:
     properties:
       hibernate:
         format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    mail:
+      host: smtp.gmail.com
+      port: 587 ##puerto por defecto
+      username: tucorreo@gmail.com
+      password: tucontraseña
+      properties:
+        mail.smtp.auth: true
+        mail.smtp.starttls.enable: true
 ```
+
+Adicionalmente, al final del anterior archivo de configuración .yaml se evidencia como se pueden configurar credenciales de correo en caso de ser necesarios envios de correo en la ejecución del programa (en el ejemplo se muestra como sería para una cuenta de correo @gmail).
+
