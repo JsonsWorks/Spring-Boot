@@ -43,6 +43,8 @@ Empresas reconocidas que usan Spring en su arquitectura incluyen:
 
 Elegimos Spring Boot por su popularidad, facilidad de uso, menor cantidad de código necesario y la amplia comunidad que lo respalda.
 
+![foto35](img/foto35.png)
+
 ---
 
 ## **Spring Initializr:**
