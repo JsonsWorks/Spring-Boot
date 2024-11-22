@@ -116,6 +116,7 @@ Al descargar el archivo de [Spring Initializr](https://start.spring.io) con las 
 2. **application.yaml**: Configuración jerárquica en formato YAML, cuya sintáxis es sencilla y legible.  
 
 ### Ejemplo de configuración YAML:
+Adicionalmente, al final del anterior archivo de configuración .yaml se evidencia como se pueden configurar credenciales de correo en caso de ser necesarios envios de correo en la ejecución del programa (en el ejemplo se muestra como sería para una cuenta de correo @gmail).
 ```yaml
 spring:
   datasource:
@@ -140,8 +141,6 @@ spring:
         mail.smtp.auth: true
         mail.smtp.starttls.enable: true
 ```
-
-Adicionalmente, al final del anterior archivo de configuración .yaml se evidencia como se pueden configurar credenciales de correo en caso de ser necesarios envios de correo en la ejecución del programa (en el ejemplo se muestra como sería para una cuenta de correo @gmail).
 ---
 ## **¿Qué es JPA?**
 
