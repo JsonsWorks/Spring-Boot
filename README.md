@@ -2,18 +2,18 @@
 
 # Índice
 
-1. **Introducción a Spring Boot**  
-2. **Cifras**    
-3. **Comparativa de Frameworks**  
-4. **Justificación**  
-5. **Spring Initializr**  
-6. **API REST**  
-7. **Configuración del Proyecto**  
-8. **¿Qué es JPA?**  
-9. **Conexión de la Base de Datos con Spring Boot**  
-10. **Anotaciones principales de las Entidades**  
-11. **Anotaciones para Relaciones entre Tablas**  
-12. **Ejemplo Práctico de Entidades**  
+1. [Introducción a Spring Boot](#introducción-a-spring-boot)  
+2. [Cifras](#cifras)  
+3. [Comparativa de Frameworks](#comparativa-de-frameworks)  
+4. [Justificación](#justificación)  
+5. [Spring Initializr](#spring-initializr)  
+6. [API REST](#api-rest)  
+7. [Configuración del Proyecto](#configuración-del-proyecto)  
+8. [¿Qué es JPA?](#qué-es-jpa)  
+9. [Conexión de la Base de Datos con Spring Boot](#conexión-de-la-base-de-datos-con-spring-boot)  
+10. [Anotaciones principales de las Entidades](#anotaciones-principales-de-las-entidades)  
+11. [Anotaciones para Relaciones entre Tablas](#anotaciones-para-relaciones-entre-tablas)  
+12. [Ejemplo Práctico de Entidades](#ejemplo-práctico-de-entidades)  
 
 ---
 
