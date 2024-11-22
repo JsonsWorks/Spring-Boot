@@ -142,7 +142,7 @@ spring:
 ```
 
 Adicionalmente, al final del anterior archivo de configuración .yaml se evidencia como se pueden configurar credenciales de correo en caso de ser necesarios envios de correo en la ejecución del programa (en el ejemplo se muestra como sería para una cuenta de correo @gmail).
-
+---
 ## **¿Qué es JPA?**
 
 JPA (Java Persistence API) es **una herramienta que facilita la interacción entre las aplicaciones Java y las bases de datos**.
@@ -155,7 +155,7 @@ JPA (Java Persistence API) es **una herramienta que facilita la interacción ent
   1. **Menos Código SQL**: En lugar de escribir muchas líneas de SQL, puedes trabajar con métodos y objetos de Java.  
   2. **Portabilidad**: JPA funciona con diferentes bases de datos (MySQL, PostgreSQL, Oracle, etc.) sin necesidad de cambiar tu código.  
   3. **Mantenimiento Simplificado**: Al usar JPA, el código es más limpio y más fácil de entender.
-
+---
 ## **¿Cómo conectar la base de datos con el archivo de Spring Boot?**  
 ![foto37](img/foto37.png)  
 En la carpeta de resources al archivo que tiene el nombre de application.properties, le cambiamos el nombre a application.yaml, que es donde irán las configuraciones para conectar la base de datos. 
@@ -169,18 +169,18 @@ Acá podemos comprobar que la conexión con la base de datos es exitosa:
 
 Ahora voy a explicar las entidades:  
 Las entidades JPA son clases de Java que representan tablas en una base de datos relacional. Se utilizan para mapear objetos Java a tablas de bases de datos, lo que permite a los desarrolladores trabajar con datos relacionales utilizando objetos Java.
-
+---
 ## **Anotaciones principales de las entidades**  
-\-@Entity: Marca la clase de java como una entidad JPA, lo que significa que será mapeada a una tabla en la clase en la base de datos.  
-\-@Table: Es una anotación opcional, se puede usar para especificar el nombre de la tabla y otros detalles de la tabla en la base de datos.  
+   -@Entity: Marca la clase de java como una entidad JPA, lo que significa que será mapeada a una tabla en la clase en la base de datos.  
+   -@Table: Es una anotación opcional, se puede usar para especificar el nombre de la tabla y otros detalles de la tabla en la base de datos.  
 ```
 @Entity
 @Table(name = "empleado")
 public class Empleado{
 ```
 Si no se tiene la anotación @Table la tabla será creada con el nombre de la clase.  
-\-@Id: Marca el atributo como la clave primaria de la identidad.  
-\-@GenerateValue Opcionalmente, se puede usar junto con la anotación @Id para especificar cómo se generará el valor de la clave primaria:
+   -@Id: Marca el atributo como la clave primaria de la identidad.  
+   -@GenerateValue Opcionalmente, se puede usar junto con la anotación @Id para especificar cómo se generará el valor de la clave primaria:
 
 GenerationType.AUTO: Permite a JPA elegir la estrategia de generación de claves automáticamente según el proveedor de la base de datos. Es el valor predeterminado.
 
@@ -190,13 +190,13 @@ GenerationType.SEQUENCE: Usa secuencias de base de datos para generar el valor d
 
 GenerationType.TABLE: Almacena el último valor de la clave en una tabla especial en la base de datos y usa este valor para generar claves únicas. Este enfoque es útil para bases de datos que no admiten incrementos automáticos o secuencias, pero puede tener un rendimiento inferior en comparación con otras estrategias.
 
-\-@Column: Permite personalizar el mapeo entre el atributo de la clase y la columna en la tabla de la base de datos.  
+   -@Column: Permite personalizar el mapeo entre el atributo de la clase y la columna en la tabla de la base de datos.  
 ```
 @column(name = "mail", length  = 70)
 private String email;
 ``` 
-\-@Transient: Marca un atributo de la clase como no persistente, lo que significa que no se mapeará a una columna en la tabla de la base de datos.  
-\-@Temporal: Se utiliza para indicar cómo se debe tratar una propiedad de tipo java.util.Date o java.util.Calendar cuando se mapea a una base de datos.  
+   -@Transient: Marca un atributo de la clase como no persistente, lo que significa que no se mapeará a una columna en la tabla de la base de datos.  
+   -@Temporal: Se utiliza para indicar cómo se debe tratar una propiedad de tipo java.util.Date o java.util.Calendar cuando se mapea a una base de datos.  
 ```
 @Temporal(TemporalType.DATE)
 private Date fechaNacimiento;
@@ -216,7 +216,7 @@ día, mes, año y hora, minutos y segundos
 Las entidades se almacenan en la carpeta de models siguiendo el patrón de MVC.
 
 Ahí se explican las entidades del ejemplo.
-
+---
 ## **Anotaciones para Relaciones entre Tablas**  
 Desde las clases de modelo, se codifica, desde las entidades, las relaciones que se van a establecer las distintas tablas.  
 @ManytoOne  
@@ -264,7 +264,7 @@ Al igual que con  One to Many se crea una lista pero en este caso para campeonat
 private List <Jugador> jugadorList;
 ``` 
 También desde la tabla de campeonatos se agrega la notación ManyToMany con la diferencia que no se incluye la notación de Join Table puesto que esta ya se estableció en la entidad de jugador.
-
+---
 ## **Repositorios**  
 Un repositorio es un componente que actúa como puente entre la aplicación y la base de datos. Los repositorios en Spring Data JPA están diseñados para aprovechar las capacidades de JPA y facilitar las operaciones con la base de datos.
 
@@ -273,8 +273,8 @@ La interfaz JpaRepository\<T, ID\> extiende CrudRepository y PaginAndSortingRepo
 ### **Sintaxis del repositorio**  
 Para crear un repositorio, solo se necesita definir una interfaz que extienda de JpaRepository. La interfaz pide dos parámetros:
 
-\-T: La entidad sobre la que se va a realizar la persistencia  
-\-ID: El tipo de dato de la clave primaria de la entidad.
+   -T: La entidad sobre la que se va a realizar la persistencia  
+   -ID: El tipo de dato de la clave primaria de la entidad.
 
 La interfaz JpaRepository proporciona muchos métodos útiles para trabajar con entidades. Algunos de los más comunes son:
 
@@ -302,13 +302,13 @@ Los  “:” indica que se va a pasar un parámetro en tiempo de ejecución.
 
 nativeQuery \= true: Indica que la consulta está escrita en SQL nativo y no en JPQL. Esto significa que la consulta interactúa directamente con las tablas de la base de datos en lugar de trabajar con las entidades de JPA.
 
-1\. **Lombok**: Es una biblioteca que reduce el código repetitivo en Java, como getters, setters, toString, equals, y hashCode. Al agregar Lombok, puedes usar anotaciones como @Getter, @Setter, @ToString, @EqualsAndHashCode, y @AllArgsConstructor, entre otras, que Lombok procesará en tiempo de compilación para generar este código automáticamente.
+   1. **Lombok**: Es una biblioteca que reduce el código repetitivo en Java, como getters, setters, toString, equals, y hashCode. Al agregar Lombok, puedes usar anotaciones como @Getter, @Setter, @ToString, @EqualsAndHashCode, y @AllArgsConstructor, entre otras, que Lombok procesará en tiempo de compilación para generar este código automáticamente.
 
-2\. **Spring Web**: Esta dependencia incluye las herramientas necesarias para construir aplicaciones web, incluyendo aplicaciones RESTful. Al agregarla, obtienes soporte para el modelo de programación MVC (Modelo-Vista-Controlador) de Spring, que permite crear endpoints, gestionar solicitudes HTTP, y desarrollar APIs web.
+   2. **Spring Web**: Esta dependencia incluye las herramientas necesarias para construir aplicaciones web, incluyendo aplicaciones RESTful. Al agregarla, obtienes soporte para el modelo de programación MVC (Modelo-Vista-Controlador) de Spring, que permite crear endpoints, gestionar solicitudes HTTP, y desarrollar APIs web.
 
-3\. **Spring Data JPA**: Proporciona una implementación de JPA (Java Persistence API) de Spring, que facilita la interacción con bases de datos relacionales. Con esta dependencia, puedes crear repositorios para interactuar con tus entidades de base de datos de forma fácil y sin escribir mucho código SQL, ya que Spring Data JPA genera las consultas automáticamente a partir de los métodos definidos en tus interfaces de repositorio.
+   3. **Spring Data JPA**: Proporciona una implementación de JPA (Java Persistence API) de Spring, que facilita la interacción con bases de datos relacionales. Con esta dependencia, puedes crear repositorios para interactuar con tus entidades de base de datos de forma fácil y sin escribir mucho código SQL, ya que Spring Data JPA genera las consultas automáticamente a partir de los métodos definidos en tus interfaces de repositorio.
 
-4\. **PostgreSQL Driver**: Es el controlador JDBC para la base de datos PostgreSQL. Necesitas este controlador para que tu aplicación Spring Boot pueda conectarse y comunicarse con una base de datos PostgreSQL, permitiéndote realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) en la base de datos.
+   4. **PostgreSQL Driver**: Es el controlador JDBC para la base de datos PostgreSQL. Necesitas este controlador para que tu aplicación Spring Boot pueda conectarse y comunicarse con una base de datos PostgreSQL, permitiéndote realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) en la base de datos.
 
 Referencias  
 [https://www.tutorialesprogramacionya.com/springbootya/detalleconcepto.php?punto=13\&codigo=14\&inicio=0](https://www.tutorialesprogramacionya.com/springbootya/detalleconcepto.php?punto=13&codigo=14&inicio=0)   
