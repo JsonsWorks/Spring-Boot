@@ -309,5 +309,5 @@ Por ejemplo:
    4. **PostgreSQL Driver**: Es el controlador JDBC para la base de datos PostgreSQL. Necesitas este controlador para que tu aplicación Spring Boot pueda conectarse y comunicarse con una base de datos PostgreSQL, permitiéndote realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) en la base de datos.
 
 Referencias  
-[https://www.tutorialesprogramacionya.com/springbootya/detalleconcepto.php?punto=13\&codigo=14\&inicio=0](https://www.tutorialesprogramacionya.com/springbootya/detalleconcepto.php?punto=13&codigo=14&inicio=0)   
-[https://programandoenjava.com/jparepository-en-spring-data/](https://programandoenjava.com/jparepository-en-spring-data/) 
+ - [https://www.tutorialesprogramacionya.com/springbootya/detalleconcepto.php?punto=13\&codigo=14\&inicio=0](https://www.tutorialesprogramacionya.com/springbootya/detalleconcepto.php?punto=13&codigo=14&inicio=0)   
+ - [https://programandoenjava.com/jparepository-en-spring-data/](https://programandoenjava.com/jparepository-en-spring-data/) 
