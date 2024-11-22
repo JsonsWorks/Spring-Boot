@@ -1,19 +1,19 @@
-# Spring Boot
+# Framework: Spring
 # Índice
 
-1. [Introducción a Spring Boot](#introducción)
-2. [Guía de Instalacion](#Guía-de-Instalación)  
-3. [Cifras](#cifras)  
-4. [Comparativa de Frameworks](#comparativa-de-frameworks)  
-5. [Justificación](#justificación)  
-6. [Spring Initializr](#spring-initializr)  
-7. [API REST](#api-rest)  
-8. [Configuración del Proyecto](#configuración-del-proyecto)  
-9. [¿Qué es JPA?](#qué-es-jpa)  
-10. [Conexión de la Base de Datos con Spring Boot](#¿Cómo-conectar-la-base-de-datos-con-el-archivo-de-Spring-Boot?)  
-11. [Anotaciones principales de las Entidades](#anotaciones-principales-de-las-entidades)  
-12. [Anotaciones para Relaciones entre Tablas](#anotaciones-para-relaciones-entre-tablas)  
-13. [Respositorios](#Repositorios)  
+1. [Introducción a Spring](#introducción).
+2. [Guía de Instalacion](#Guía-de-Instalación).  
+3. [Cifras](#cifras).  
+4. [Comparativa de Frameworks](#comparativa-de-frameworks).  
+5. [Justificación](#justificación).  
+6. [Spring Initializr](#spring-initializr).  
+7. [API REST](#api-rest).  
+8. [Configuración del Proyecto](#configuración-del-proyecto).  
+9. [¿Qué es JPA?](#qué-es-jpa).  
+10. [Conexión de la Base de Datos con Spring Boot](#¿Cómo-conectar-la-base-de-datos-con-el-archivo-de-Spring-Boot?).  
+11. [Anotaciones principales de las Entidades](#anotaciones-principales-de-las-entidades).  
+12. [Anotaciones para Relaciones entre Tablas](#anotaciones-para-relaciones-entre-tablas).  
+13. [Respositorios](#Repositorios).  
 
 ---
 
@@ -30,12 +30,12 @@ Spring Boot se complementa con Spring Data JPA (Java Persistence API), un ecosis
 El propósito de esta presentación es enseñar cómo utilizar Spring Boot y Spring Data JPA con PostgreSQL desde el editor IntelliJ mediante un ejemplo práctico.
 
 ---
-# Guía de Instalación
+# Guía de Instalación.
 
 Este proyecto incluye guías detalladas para la instalación en diferentes sistemas operativos. Haz clic en los enlaces correspondientes para más información:
 
-- [Instalación en Windows](WINDOWS-64BITS.md)
-- [Instalación en Linux](linux-spring-setup.md)
+- [Instalación en Windows](WINDOWS-64BITS.md).
+- [Instalación en Linux](linux-spring-setup.md).
 
 ---
 
@@ -43,11 +43,11 @@ Este proyecto incluye guías detalladas para la instalación en diferentes siste
 
 Empresas reconocidas que usan Spring en su arquitectura incluyen:
 
-- **Netflix**: $31.6 mil millones  
-- **eBay**: $9.8 mil millones  
-- **Alibaba**: $125.5 mil millones  
-- **BMW**: $132.2 mil millones  
-- **IBM**: $60.5 mil millones  
+- **Netflix**: $31.6 mil millones.  
+- **eBay**: $9.8 mil millones.  
+- **Alibaba**: $125.5 mil millones.  
+- **BMW**: $132.2 mil millones.  
+- **IBM**: $60.5 mil millones.  
 
 ---
 
@@ -106,24 +106,24 @@ Elegimos Spring Boot por su popularidad, facilidad de uso, menor cantidad de có
 - **Representación de recursos**: JSON, XML, HTML, etc.
 
 ### Ejemplo de peticiones:
-1. **Obtener todos los jugadores**  
-   - Método HTTP: `GET`  
-   - URI: `/jugadores`  
+1. **Obtener todos los jugadores.**  
+   - Método HTTP: `GET`.  
+   - URI: `/jugadores`.  
    - Respuesta: JSON con la lista de jugadores.  
 
-2. **Crear un jugador**  
-   - Método HTTP: `POST`  
-   - URI: `/jugadores`  
+2. **Crear un jugador.**  
+   - Método HTTP: `POST`.  
+   - URI: `/jugadores`.  
    - Cuerpo: JSON con los detalles del jugador.  
 
-3. **Actualizar un jugador**  
-   - Método HTTP: `PUT`  
-   - URI: `/jugadores/{id}`  
+3. **Actualizar un jugador.**  
+   - Método HTTP: `PUT`.  
+   - URI: `/jugadores/{id}`.  
    - Cuerpo: JSON con los datos actualizados.  
 
-4. **Eliminar un jugador**  
-   - Método HTTP: `DELETE`  
-   - URI: `/jugadores/{id}`  
+4. **Eliminar un jugador.**  
+   - Método HTTP: `DELETE`.  
+   - URI: `/jugadores/{id}`.  
 
 ---
 
@@ -193,7 +193,7 @@ Las entidades JPA son clases de Java que representan tablas en una base de datos
 ![foto38](img/foto38.png)   ![foto40](img/foto40.png)
 
 ---
-## **Anotaciones principales de las entidades**  
+## **Anotaciones principales de las entidades.**  
    - @Entity: Marca la clase de java como una entidad JPA, lo que significa que será mapeada a una tabla en la clase en la base de datos.  
    - @Table: Es una anotación opcional, se puede usar para especificar el nombre de la tabla y otros detalles de la tabla en la base de datos.  
 ```
@@ -240,7 +240,7 @@ Las entidades se almacenan en la carpeta de models siguiendo el patrón de MVC.
 Ahí se explican las entidades del ejemplo.
 
 ---
-## **Anotaciones para Relaciones entre Tablas**  
+## **Anotaciones para Relaciones entre Tablas.**  
 Desde las clases de modelo, se codifica, desde las entidades, las relaciones que se van a establecer las distintas tablas.  
  - @ManytoOne  
 ```
@@ -288,12 +288,12 @@ También desde la tabla de campeonatos se agrega la notación ManyToMany con la 
 private List <Jugador> jugadorList;
 ``` 
 ---
-## **Repositorios**  
+## **Repositorios.**  
 Un repositorio es un componente que actúa como puente entre la aplicación y la base de datos. Los repositorios en Spring Data JPA están diseñados para aprovechar las capacidades de JPA y facilitar las operaciones con la base de datos.
 
 La interfaz JpaRepository\<T, ID\> extiende CrudRepository y PaginAndSortingRepository, lo que da acceso a una amplia gama de métodos predefinidos.
 
-### **Sintaxis del repositorio**  
+### **Sintaxis del repositorio.**  
 Para crear un repositorio, solo se necesita definir una interfaz que extienda de JpaRepository. La interfaz pide dos parámetros:
 
    - T: La entidad sobre la que se va a realizar la persistencia  
@@ -311,7 +311,7 @@ La interfaz JpaRepository proporciona muchos métodos útiles para trabajar con 
 ### **Paginación y Ordenación:**  
  - findAll(Sort sort): Encuentra todas las entidades y las ordena.
 
-### **Consulta personalizada**  
+### **Consulta personalizada.**  
  - También se puede definir consultas personalizadas y más complejas utilizando la la anotación de @Query. 
 
 Por ejemplo:
