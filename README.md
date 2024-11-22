@@ -180,13 +180,13 @@ Si no se tiene la anotación @Table la tabla será creada con el nombre de la cl
    - @Id: Marca el atributo como la clave primaria de la identidad.  
    - @GenerateValue Opcionalmente, se puede usar junto con la anotación @Id para especificar cómo se generará el valor de la clave primaria:
 
-GenerationType.AUTO: Permite a JPA elegir la estrategia de generación de claves automáticamente según el proveedor de la base de datos. Es el valor predeterminado.
+ - GenerationType.AUTO: Permite a JPA elegir la estrategia de generación de claves automáticamente según el proveedor de la base de datos. Es el valor predeterminado.
 
-GenerationType.IDENTITY: Utiliza una columna de incremento automático de la base de datos. Este valor es ideal si estás usando bases de datos que soportan columnas auto-incrementales, como MySQL.
+ - GenerationType.IDENTITY: Utiliza una columna de incremento automático de la base de datos. Este valor es ideal si estás usando bases de datos que soportan columnas auto-incrementales, como MySQL.
 
-GenerationType.SEQUENCE: Usa secuencias de base de datos para generar el valor de la clave primaria. Esto es útil en bases de datos que tienen soporte para secuencias, como PostgreSQL y Oracle. Para utilizar esta estrategia, normalmente debes definir una secuencia en la base de datos y, opcionalmente, puedes especificar su nombre con la anotación @SequenceGenerator.
+ - GenerationType.SEQUENCE: Usa secuencias de base de datos para generar el valor de la clave primaria. Esto es útil en bases de datos que tienen soporte para secuencias, como PostgreSQL y Oracle. Para utilizar esta estrategia, normalmente debes definir una secuencia en la base de datos y, opcionalmente, puedes especificar su nombre con la anotación @SequenceGenerator.
 
-GenerationType.TABLE: Almacena el último valor de la clave en una tabla especial en la base de datos y usa este valor para generar claves únicas. Este enfoque es útil para bases de datos que no admiten incrementos automáticos o secuencias, pero puede tener un rendimiento inferior en comparación con otras estrategias.
+ - GenerationType.TABLE: Almacena el último valor de la clave en una tabla especial en la base de datos y usa este valor para generar claves únicas. Este enfoque es útil para bases de datos que no admiten incrementos automáticos o secuencias, pero puede tener un rendimiento inferior en comparación con otras estrategias.
 
    - @Column: Permite personalizar el mapeo entre el atributo de la clase y la columna en la tabla de la base de datos.  
 ```
@@ -256,12 +256,12 @@ private List<Campeonato> campeonatoList;
 Desde la entidad de Jugadores se establece la relación de muchos a muchos jugadores  
 @JoinTable es la notación que se usa para definir la tabla intermedia y guardar los datos de ambas tablas.  
 Se le da el nombre a la tabla, se especifican los atributos foráneos que se le dará a la tabla incluyendo jugador id y campeonato \_id uniendo las distintas columnas.  
-Al igual que con  One to Many se crea una lista pero en este caso para campeonato.  
+Al igual que con  One to Many se crea una lista pero en este caso para campeonato.
+También desde la tabla de campeonatos se agrega la notación ManyToMany con la diferencia que no se incluye la notación de Join Table puesto que esta ya se estableció en la entidad de jugador.
 ```
 @ManyToMany(mappedBy = "campeonatoList")
 private List <Jugador> jugadorList;
 ``` 
-También desde la tabla de campeonatos se agrega la notación ManyToMany con la diferencia que no se incluye la notación de Join Table puesto que esta ya se estableció en la entidad de jugador.
 ---
 ## **Repositorios**  
 Un repositorio es un componente que actúa como puente entre la aplicación y la base de datos. Los repositorios en Spring Data JPA están diseñados para aprovechar las capacidades de JPA y facilitar las operaciones con la base de datos.
@@ -286,7 +286,7 @@ La interfaz JpaRepository proporciona muchos métodos útiles para trabajar con 
 ### **Paginación y Ordenación:**  
  - findAll(Sort sort): Encuentra todas las entidades y las ordena.
 
-###**Consulta personalizada**  
+### **Consulta personalizada**  
  - También se puede definir consultas personalizadas y más complejas utilizando la la anotación de @Query. 
 
 Por ejemplo:
@@ -296,9 +296,9 @@ Por ejemplo:
 
  - @Param("nombreEquipo"): Esta anotación vincula el parámetro de la consulta :nombreEquipo con el argumento que le pasas al método en tiempo de ejecución. Es decir, el valor del argumento nombreEquipo que le pases cuando llames al método será utilizado para reemplazar el parámetro :nombreEquipo en la consulta.
 
-Los  “:” indica que se va a pasar un parámetro en tiempo de ejecución.
+ - Los  “:” indica que se va a pasar un parámetro en tiempo de ejecución.
 
-nativeQuery \= true: Indica que la consulta está escrita en SQL nativo y no en JPQL. Esto significa que la consulta interactúa directamente con las tablas de la base de datos en lugar de trabajar con las entidades de JPA.
+ - nativeQuery \= true: Indica que la consulta está escrita en SQL nativo y no en JPQL. Esto significa que la consulta interactúa directamente con las tablas de la base de datos en lugar de trabajar con las entidades de JPA.
 
    1. **Lombok**: Es una biblioteca que reduce el código repetitivo en Java, como getters, setters, toString, equals, y hashCode. Al agregar Lombok, puedes usar anotaciones como @Getter, @Setter, @ToString, @EqualsAndHashCode, y @AllArgsConstructor, entre otras, que Lombok procesará en tiempo de compilación para generar este código automáticamente.
 
