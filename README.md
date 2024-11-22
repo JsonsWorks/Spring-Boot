@@ -1,18 +1,19 @@
 # Spring Boot
 # Índice
 
-1. [Introducción a Spring Boot](#introducción)  
-2. [Cifras](#cifras)  
-3. [Comparativa de Frameworks](#comparativa-de-frameworks)  
-4. [Justificación](#justificación)  
-5. [Spring Initializr](#spring-initializr)  
-6. [API REST](#api-rest)  
-7. [Configuración del Proyecto](#configuración-del-proyecto)  
-8. [¿Qué es JPA?](#qué-es-jpa)  
-9. [Conexión de la Base de Datos con Spring Boot](#¿Cómo-conectar-la-base-de-datos-con-el-archivo-de-Spring-Boot?)  
-10. [Anotaciones principales de las Entidades](#anotaciones-principales-de-las-entidades)  
-11. [Anotaciones para Relaciones entre Tablas](#anotaciones-para-relaciones-entre-tablas)  
-12. [Respositorios](#Repositorios)  
+1. [Introducción a Spring Boot](#introducción)
+2. [Guía de Instalacion](#Guía-de-Instalación)  
+3. [Cifras](#cifras)  
+4. [Comparativa de Frameworks](#comparativa-de-frameworks)  
+5. [Justificación](#justificación)  
+6. [Spring Initializr](#spring-initializr)  
+7. [API REST](#api-rest)  
+8. [Configuración del Proyecto](#configuración-del-proyecto)  
+9. [¿Qué es JPA?](#qué-es-jpa)  
+10. [Conexión de la Base de Datos con Spring Boot](#¿Cómo-conectar-la-base-de-datos-con-el-archivo-de-Spring-Boot?)  
+11. [Anotaciones principales de las Entidades](#anotaciones-principales-de-las-entidades)  
+12. [Anotaciones para Relaciones entre Tablas](#anotaciones-para-relaciones-entre-tablas)  
+13. [Respositorios](#Repositorios)  
 
 ---
 
@@ -27,6 +28,14 @@ Además, es ampliamente utilizado en el desarrollo de plataformas web, siendo un
 Spring Boot se complementa con Spring Data JPA (Java Persistence API), un ecosistema que proporciona una capa de abstracción para interactuar con bases de datos relacionales y no relacionales como PostgreSQL. Este enfoque permite a los desarrolladores enfocarse en la lógica de la base de datos, reduciendo la cantidad de código necesario para operaciones CRUD.
 
 El propósito de esta presentación es enseñar cómo utilizar Spring Boot y Spring Data JPA con PostgreSQL desde el editor IntelliJ mediante un ejemplo práctico.
+
+---
+# Guía de Instalación
+
+Este proyecto incluye guías detalladas para la instalación en diferentes sistemas operativos. Haz clic en los enlaces correspondientes para más información:
+
+- [Instalación en Windows](WINDOWS-64BITS.md)
+- [Instalación en Linux](linux-spring-setup.md)
 
 ---
 
