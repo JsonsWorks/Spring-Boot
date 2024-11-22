@@ -165,9 +165,7 @@ Vamos a conectar la base de datos a nuestro archivo con SpringBoot:
 Instalamos el plugin DB Navigator:   
 ![foto38](img/foto38.png)   ![foto40](img/foto40.png)
 
-Acá podemos comprobar que la conexión con la base de datos es exitosa:
-
-Ahora voy a explicar las entidades:  
+Acá podemos comprobar que la conexión con la base de datos es exitosa: 
 Las entidades JPA son clases de Java que representan tablas en una base de datos relacional. Se utilizan para mapear objetos Java a tablas de bases de datos, lo que permite a los desarrolladores trabajar con datos relacionales utilizando objetos Java.
 ---
 ## **Anotaciones principales de las entidades**  
