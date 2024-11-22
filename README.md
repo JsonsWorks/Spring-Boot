@@ -157,13 +157,13 @@ JPA (Java Persistence API) es **una herramienta que facilita la interacción ent
   3. **Mantenimiento Simplificado**: Al usar JPA, el código es más limpio y más fácil de entender.
 
 ## **¿Cómo conectar la base de datos con el archivo de Spring Boot?**  
-![][image3]  
+![foto37](img/foto37.png)  
 En la carpeta de resources al archivo que tiene el nombre de application.properties, le cambiamos el nombre a application.yaml, que es donde irán las configuraciones para conectar la base de datos. 
 
 Vamos a conectar la base de datos a nuestro archivo con SpringBoot:
 
 Instalamos el plugin DB Navigator:   
-![][image4]   ![][image5]
+![foto38](img/foto38.png)   ![foto40](img/foto40.png)
 
 Acá podemos comprobar que la conexión con la base de datos es exitosa:
 
@@ -173,7 +173,11 @@ Las entidades JPA son clases de Java que representan tablas en una base de datos
 ## **Anotaciones principales de las entidades**  
 \-@Entity: Marca la clase de java como una entidad JPA, lo que significa que será mapeada a una tabla en la clase en la base de datos.  
 \-@Table: Es una anotación opcional, se puede usar para especificar el nombre de la tabla y otros detalles de la tabla en la base de datos.  
-![][image6]  
+```
+@Entity
+@Table(name = "empleado")
+public class Empleado{
+```
 Si no se tiene la anotación @Table la tabla será creada con el nombre de la clase.  
 \-@Id: Marca el atributo como la clave primaria de la identidad.  
 \-@GenerateValue Opcionalmente, se puede usar junto con la anotación @Id para especificar cómo se generará el valor de la clave primaria:
@@ -187,12 +191,27 @@ GenerationType.SEQUENCE: Usa secuencias de base de datos para generar el valor d
 GenerationType.TABLE: Almacena el último valor de la clave en una tabla especial en la base de datos y usa este valor para generar claves únicas. Este enfoque es útil para bases de datos que no admiten incrementos automáticos o secuencias, pero puede tener un rendimiento inferior en comparación con otras estrategias.
 
 \-@Column: Permite personalizar el mapeo entre el atributo de la clase y la columna en la tabla de la base de datos.  
- ![][image7]  
+```
+@column(name = "mail", length  = 70)
+private String email;
+``` 
 \-@Transient: Marca un atributo de la clase como no persistente, lo que significa que no se mapeará a una columna en la tabla de la base de datos.  
 \-@Temporal: Se utiliza para indicar cómo se debe tratar una propiedad de tipo java.util.Date o java.util.Calendar cuando se mapea a una base de datos.  
-![][image8]día, mes y año  
-![][image9]hora, minutos y segundos  
-![][image10]día, mes, año y hora, minutos y segundos
+```
+@Temporal(TemporalType.DATE)
+private Date fechaNacimiento;
+``` 
+día, mes y año  
+```
+@Temporal(TemporalType.TIME)
+private Date hora;
+``` 
+hora, minutos y segundos  
+```
+@Temporal(TemporalType.TIMESTAMP)
+private Date fecha_hora;
+``` 
+día, mes, año y hora, minutos y segundos
 
 Las entidades se almacenan en la carpeta de models siguiendo el patrón de MVC.
 
@@ -201,12 +220,19 @@ Ahí se explican las entidades del ejemplo.
 ## **Anotaciones para Relaciones entre Tablas**  
 Desde las clases de modelo, se codifica, desde las entidades, las relaciones que se van a establecer las distintas tablas.  
 @ManytoOne  
-![][image11]  
+```
+@ManyToOne
+@JoinColumn(name = "equipo_id")
+private Equipo equipo;
+```
 Desde la clase jugador se crea una relación de Muchos a uno para muchos jugadores a un equipo.  
 Se crea el atributo con la llave foránea llamado “equipo \_id” que pertenece a la entidad de Jugadores  
 Instancia un equipo de tipo Equipo que demuestra que cada que se cree un Jugador habrá una instancia de un Equipo asociada a dicho jugador  
 @OnetoMany  
-![][image12]  
+```
+@oneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
+private List<Jugador> jugadorList;
+``` 
 Relación de uno a muchos de la entidad de Equipo a Jugadores  
 El primer atributo mappedBy le da la responsabilidad a la propiedad equipo de la Lista de Jugadores.  
 El segundo atributo especifica cómo se comportará la cascada para la relación la cual puede ser de las siguientes tres maneras:
@@ -220,12 +246,23 @@ El segundo atributo especifica cómo se comportará la cascada para la relación
 
 Por último se crea una lista con instancias de tipo Jugador para muchos jugadores.  
 @ManytoMany  
-![][image13]  
+```
+@ManyToMany
+@JoinTable(
+      name = "CAMPEONATO_JUGADOR",
+      joinColumns = @JoinColumn(name = "jugador_id"),
+      inverseJoinColumns = @JoinColumn(name = "campeonato_id")
+)
+private List<Campeonato> campeonatoList;
+```  
 Desde la entidad de Jugadores se establece la relación de muchos a muchos jugadores  
 @JoinTable es la notación que se usa para definir la tabla intermedia y guardar los datos de ambas tablas.  
 Se le da el nombre a la tabla, se especifican los atributos foráneos que se le dará a la tabla incluyendo jugador id y campeonato \_id uniendo las distintas columnas.  
 Al igual que con  One to Many se crea una lista pero en este caso para campeonato.  
-![][image14]  
+```
+@ManyToMany(mappedBy = "campeonatoList")
+private List <Jugador> jugadorList;
+``` 
 También desde la tabla de campeonatos se agrega la notación ManyToMany con la diferencia que no se incluye la notación de Join Table puesto que esta ya se estableció en la entidad de jugador.
 
 ## **Repositorios**  
@@ -254,8 +291,10 @@ findAll(Sort sort): Encuentra todas las entidades y las ordena.
 ###**Consulta personalizada**  
 También se puede definir consultas personalizadas y más complejas utilizando la la anotación de @Query. 
 
-Por ejemplo:  
+Por ejemplo:
+```  
 @Query("SELECT j FROM Jugador j WHERE j.equipo.nombre \= :nombreEquipo") List\<Jugador\> findJugadoresByEquipoNombre(@Param("nombreEquipo") String nombreEquipo);
+```
 
 @Param("nombreEquipo"): Esta anotación vincula el parámetro de la consulta :nombreEquipo con el argumento que le pasas al método en tiempo de ejecución. Es decir, el valor del argumento nombreEquipo que le pases cuando llames al método será utilizado para reemplazar el parámetro :nombreEquipo en la consulta.
 
