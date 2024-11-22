@@ -1,5 +1,22 @@
 # Introducción a Spring Boot
 
+# Índice
+
+1. **Introducción a Spring Boot**  
+2. **Cifras**    
+3. **Comparativa de Frameworks**  
+4. **Justificación**  
+5. **Spring Initializr**  
+6. **API REST**  
+7. **Configuración del Proyecto**  
+8. **¿Qué es JPA?**  
+9. **Conexión de la Base de Datos con Spring Boot**  
+10. **Anotaciones principales de las Entidades**  
+11. **Anotaciones para Relaciones entre Tablas**  
+12. **Ejemplo Práctico de Entidades**  
+
+---
+
 ## **Introducción:**
 
 Spring Boot es una extensión de Spring, este último es un framework de desarrollo que permite crear aplicaciones empresariales robustas, escalables y seguras para Java, Kotlin y Groovy. Spring Boot simplifica aún más el desarrollo de aplicaciones al reducir la cantidad de configuración manual requerida y proporcionar características listas para usar.
