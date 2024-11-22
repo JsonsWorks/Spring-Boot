@@ -169,16 +169,16 @@ Las entidades JPA son clases de Java que representan tablas en una base de datos
 
 ---
 ## **Anotaciones principales de las entidades**  
-   -@Entity: Marca la clase de java como una entidad JPA, lo que significa que será mapeada a una tabla en la clase en la base de datos.  
-   -@Table: Es una anotación opcional, se puede usar para especificar el nombre de la tabla y otros detalles de la tabla en la base de datos.  
+   - @Entity: Marca la clase de java como una entidad JPA, lo que significa que será mapeada a una tabla en la clase en la base de datos.  
+   - @Table: Es una anotación opcional, se puede usar para especificar el nombre de la tabla y otros detalles de la tabla en la base de datos.  
 ```
 @Entity
 @Table(name = "empleado")
 public class Empleado{
 ```
 Si no se tiene la anotación @Table la tabla será creada con el nombre de la clase.  
-   -@Id: Marca el atributo como la clave primaria de la identidad.  
-   -@GenerateValue Opcionalmente, se puede usar junto con la anotación @Id para especificar cómo se generará el valor de la clave primaria:
+   - @Id: Marca el atributo como la clave primaria de la identidad.  
+   - @GenerateValue Opcionalmente, se puede usar junto con la anotación @Id para especificar cómo se generará el valor de la clave primaria:
 
 GenerationType.AUTO: Permite a JPA elegir la estrategia de generación de claves automáticamente según el proveedor de la base de datos. Es el valor predeterminado.
 
@@ -188,13 +188,13 @@ GenerationType.SEQUENCE: Usa secuencias de base de datos para generar el valor d
 
 GenerationType.TABLE: Almacena el último valor de la clave en una tabla especial en la base de datos y usa este valor para generar claves únicas. Este enfoque es útil para bases de datos que no admiten incrementos automáticos o secuencias, pero puede tener un rendimiento inferior en comparación con otras estrategias.
 
-   -@Column: Permite personalizar el mapeo entre el atributo de la clase y la columna en la tabla de la base de datos.  
+   - @Column: Permite personalizar el mapeo entre el atributo de la clase y la columna en la tabla de la base de datos.  
 ```
 @column(name = "mail", length  = 70)
 private String email;
 ``` 
-   -@Transient: Marca un atributo de la clase como no persistente, lo que significa que no se mapeará a una columna en la tabla de la base de datos.  
-   -@Temporal: Se utiliza para indicar cómo se debe tratar una propiedad de tipo java.util.Date o java.util.Calendar cuando se mapea a una base de datos.  
+   - @Transient: Marca un atributo de la clase como no persistente, lo que significa que no se mapeará a una columna en la tabla de la base de datos.  
+   - @Temporal: Se utiliza para indicar cómo se debe tratar una propiedad de tipo java.util.Date o java.util.Calendar cuando se mapea a una base de datos.  
 ```
 @Temporal(TemporalType.DATE)
 private Date fechaNacimiento;
@@ -217,7 +217,7 @@ Ahí se explican las entidades del ejemplo.
 ---
 ## **Anotaciones para Relaciones entre Tablas**  
 Desde las clases de modelo, se codifica, desde las entidades, las relaciones que se van a establecer las distintas tablas.  
-@ManytoOne  
+ - @ManytoOne  
 ```
 @ManyToOne
 @JoinColumn(name = "equipo_id")
@@ -226,7 +226,7 @@ private Equipo equipo;
 Desde la clase jugador se crea una relación de Muchos a uno para muchos jugadores a un equipo.  
 Se crea el atributo con la llave foránea llamado “equipo \_id” que pertenece a la entidad de Jugadores  
 Instancia un equipo de tipo Equipo que demuestra que cada que se cree un Jugador habrá una instancia de un Equipo asociada a dicho jugador  
-@OnetoMany  
+ - @OnetoMany  
 ```
 @oneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
 private List<Jugador> jugadorList;
@@ -243,7 +243,7 @@ El segundo atributo especifica cómo se comportará la cascada para la relación
 6. Todas (ALL): Son todos los anteriores comportamientos para la relación entre Equipo y Jugadores
 
 Por último se crea una lista con instancias de tipo Jugador para muchos jugadores.  
-@ManytoMany  
+ - @ManytoMany  
 ```
 @ManyToMany
 @JoinTable(
@@ -271,30 +271,30 @@ La interfaz JpaRepository\<T, ID\> extiende CrudRepository y PaginAndSortingRepo
 ### **Sintaxis del repositorio**  
 Para crear un repositorio, solo se necesita definir una interfaz que extienda de JpaRepository. La interfaz pide dos parámetros:
 
-   -T: La entidad sobre la que se va a realizar la persistencia  
-   -ID: El tipo de dato de la clave primaria de la entidad.
+   - T: La entidad sobre la que se va a realizar la persistencia  
+   - ID: El tipo de dato de la clave primaria de la entidad.
 
 La interfaz JpaRepository proporciona muchos métodos útiles para trabajar con entidades. Algunos de los más comunes son:
 
 ### **Operaciones CRUD:**  
-save(S entity): Guarda o actualiza una entidad en la base de datos.  
-findById(ID id): Encuentra una entidad por su clave primaria.  
-findAll(): Recupera todas las entidades del repositorio.  
-delete(T entity): Elimina una entidad de la base de datos.  
-deleteById(ID id): Elimina una entidad por su clave primaria.
+ - save(S entity): Guarda o actualiza una entidad en la base de datos.  
+ - findById(ID id): Encuentra una entidad por su clave primaria.  
+ - findAll(): Recupera todas las entidades del repositorio.  
+ - delete(T entity): Elimina una entidad de la base de datos.  
+ - deleteById(ID id): Elimina una entidad por su clave primaria.
 
 ### **Paginación y Ordenación:**  
-findAll(Sort sort): Encuentra todas las entidades y las ordena.
+ - findAll(Sort sort): Encuentra todas las entidades y las ordena.
 
 ###**Consulta personalizada**  
-También se puede definir consultas personalizadas y más complejas utilizando la la anotación de @Query. 
+ - También se puede definir consultas personalizadas y más complejas utilizando la la anotación de @Query. 
 
 Por ejemplo:
 ```  
 @Query("SELECT j FROM Jugador j WHERE j.equipo.nombre \= :nombreEquipo") List\<Jugador\> findJugadoresByEquipoNombre(@Param("nombreEquipo") String nombreEquipo);
 ```
 
-@Param("nombreEquipo"): Esta anotación vincula el parámetro de la consulta :nombreEquipo con el argumento que le pasas al método en tiempo de ejecución. Es decir, el valor del argumento nombreEquipo que le pases cuando llames al método será utilizado para reemplazar el parámetro :nombreEquipo en la consulta.
+ - @Param("nombreEquipo"): Esta anotación vincula el parámetro de la consulta :nombreEquipo con el argumento que le pasas al método en tiempo de ejecución. Es decir, el valor del argumento nombreEquipo que le pases cuando llames al método será utilizado para reemplazar el parámetro :nombreEquipo en la consulta.
 
 Los  “:” indica que se va a pasar un parámetro en tiempo de ejecución.
 
