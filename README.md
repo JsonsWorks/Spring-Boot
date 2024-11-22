@@ -212,8 +212,8 @@ private Date fecha_hora;
 día, mes, año y hora, minutos y segundos
 
 Las entidades se almacenan en la carpeta de models siguiendo el patrón de MVC.
-
 Ahí se explican las entidades del ejemplo.
+
 ---
 ## **Anotaciones para Relaciones entre Tablas**  
 Desde las clases de modelo, se codifica, desde las entidades, las relaciones que se van a establecer las distintas tablas.  
