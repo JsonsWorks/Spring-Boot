@@ -1,8 +1,7 @@
-# Introducción a Spring Boot
-
+# Spring Boot
 # Índice
 
-1. [Introducción a Spring Boot](#introducción-a-spring-boot)  
+1. [Introducción a Spring Boot](#introducción)  
 2. [Cifras](#cifras)  
 3. [Comparativa de Frameworks](#comparativa-de-frameworks)  
 4. [Justificación](#justificación)  
